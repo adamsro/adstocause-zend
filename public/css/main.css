@@ -1,0 +1,112 @@
+@CHARSET "ISO-8859-1";
+
+.post {
+	margin: 0px;
+	padding: 10px 10px 10px 10px;
+}
+
+.title {
+	padding: 0px 0px 10px 0px;
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.description {
+	padding: 0px 0px 0px 0px;
+	font-family: sans-serif;
+	font-weight: normal;
+	font-size: 12px;
+}
+
+.commentscount {
+	padding: 5px 0px 0px 0px;
+	font-family: sans-serif;
+	font-weight: normal;
+	font-style: italic;
+	font-size: 12px;
+}
+
+.pagination {
+	margin: 0px;
+	padding: 10px 0px 0px 10px;
+}
+
+.comment {
+	padding: 5px 0px 0px 0px;
+}
+
+.comments {
+	padding: 10px 10px 10px 10px;
+}
+
+.postedby {
+	font-style: italic;
+	font-family: monospace;
+}
+
+h2 {
+	color: #0056FF;
+}
+
+h3 {
+	color: #0056FF;
+	padding-top: 15px;
+	clear: left;
+}
+
+h3.nopad {
+	padding: 0px;
+}
+
+ul {
+	background-color: #E0EAFF;
+	color: #191D1D;
+	margin: 10px;
+	padding: 10px 10px 10px 25px;
+	border: 1px solid #515B5C;
+}
+
+ul.user,ul.albums {
+	background-color: #FFFFFF;
+	border: 0px;
+	padding: 0px;
+}
+
+li.user,li.albums {
+	display: block;
+	float: left;
+	margin: 5px;
+	padding: 5px;
+	text-align: center;
+	background-color: #E0EAFF;
+	border: 1px solid #515B5C;
+}
+
+a {
+	color: #0056FF;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #E00000;
+}
+
+div.menuForm {
+	margin: 10px;
+	padding: 0px 10px;
+	background-color: #E0EAFF;
+	border: 1px solid #515B5C;
+}
+
+form.deleteForm {
+	padding-left: 10px;
+	display: inline;
+}
+
+img.thumb {
+	margin: 5px;
+	border: 0px;
+}

@@ -1,0 +1,7 @@
+<?php
+	$this->ckeditor = 'ckeditor';
+?>
+<h2>Edit Post</h2>
+<div><?php echo $this->postForm; ?></div>
+<!-- Description is the id of the textarea -->
+<?php echo $this->setupEditor( 'Description' ); ?>

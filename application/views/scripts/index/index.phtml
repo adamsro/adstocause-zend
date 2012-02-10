@@ -1,0 +1,12 @@
+<?php if (count($this->paginator)): ?>
+<?php foreach ($this->paginator as $post ): ?>
+<div class="post">
+  <div class="title"><a href="<?php echo $this->baseUrl()."/posts/view/id/".$post['id']; ?>"><?php echo $this->escape($post['Title']); ?></a></div>
+  <div class="description"><?php echo nl2br(substr( strip_tags( $post['Description']), 0 , 300)); ?></div>
+  <div class="commentscount">Comments( count )</div>
+</div>
+<?php endforeach; ?>
+<?php endif; ?>
+<div class="pagination"><?php echo $this->paginationControl($this->paginator,
+                                    'Sliding',
+                                    '/partials/my_pagination_control.phtml'); ?></div>

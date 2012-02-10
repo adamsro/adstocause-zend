@@ -1,0 +1,28 @@
+<?php 
+// application/layouts/scripts/layout.phtml
+
+echo $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head>  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+  <title>Bloggers turns to developers</title>
+  <?php echo $this->headLink()->appendStylesheet('/quickstart/public/css/global.css') ?>
+  <?php echo $this->headLink()->prependStylesheet($this->baseUrl().'/css/main.css'); ?>
+<?php 
+	if ( $this->ckeditor ) { 
+		echo $this->headScript()->appendFile( $this->baseUrl().'/js/ckeditor/ckeditor.js');
+ 	}
+?>
+</head> 
+<body>
+<div id="header" style="background-color: #EEEEEE; height: 30px;">
+    <div id="header-logo" style="float: left">
+        <b><a href="<?php echo $this->baseurl(); ?>">ZF 1.9 Blog</a></b>&nbsp; &nbsp;
+        <b><a href="<?php echo $this->baseurl()."/gallery"; ?>">Photo Gallery</a></b>&nbsp; &nbsp; 
+        <?php echo $this->loggedInUser(); ?>
+    </div>    
+</div>
+
+<div><?php echo $this->layout()->content ?></div>
+</body>
+</html>

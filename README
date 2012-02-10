@@ -1,0 +1,46 @@
+*Note , this is not fully complete . I am working on it to add additional functionalities .
+
+Creating a blog using Zend Framework 1.9 . I am learning zend framework and also learning git .
+
+Added authentication , authorization , pagination etc.
+
+4 roles are there . Guest , User , Blogger and Admin .
+
+Guest can view all posts and comments. 
+
+User can post comments . 
+
+Blogger can add, edit posts and add comments.
+
+Admin can do everything. 
+
+Actually need a Roles table and the foreign key will be placed in the Users table . 
+
+But for the simplicity I have added the roles in the users table itself . 
+
+As I am new to Zend_ACL and Zend_Auth I have made this for my convinience :)
+
+Added registration form and forgot password request form . Need to implement it . Working on it .
+
+There may be errors from my part as I am learning . You can download and use at your own risk .
+
+Licenced to copy modify in the terms of GNU/GPL :)
+
+Feel free to comment for the post in my blog . Let me know the erros and bugs .
+
+http://harikt.com/content/simple-blog-using-zend-framework-19
+
+
+16-09-09
+
+Added ckeditor the Opensource WYSIWYG editor for adding and editing posts .
+
+*Sorry a bug its not storing the tags . Striptags stipping :) . Let me see whether I can trace it out .
+
+Changed the way the login and logout was added .
+
+Gallery : 
+
+Added a small portion to get the picasa web albums from public gallery
+
+I am thinking to implement the feature to upload to picasa via admin . Hope to do it soon :) . So every one can enjoy it .
