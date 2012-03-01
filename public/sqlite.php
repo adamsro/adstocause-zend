@@ -29,11 +29,29 @@
 //please report any bugs you encounter to http://code.google.com/p/phpliteadmin/issues/list
 //BEGIN USER-DEFINED VARIABLES
 //////////////////////////////
+// Define path to application directory
+defined('APPLICATION_PATH')
+        || define('APPLICATION_PATH', realpath(dirname(__FILE__) . '/../application'));
+
+// Define application environment
+defined('APPLICATION_ENV')
+        || define('APPLICATION_ENV', (getenv('APPLICATION_ENV') ? getenv('APPLICATION_ENV') : 'production'));
+
+// Ensure library/ is on include_path
+set_include_path(implode(PATH_SEPARATOR, array(
+            realpath(APPLICATION_PATH . '/../library'),
+            get_include_path(),
+        )));
+
+require_once 'Zend/Loader/Autoloader.php';
+$autoloader = Zend_Loader_Autoloader::getInstance();
+
+$config = new Zend_Config_Ini(APPLICATION_PATH . '/configs/application.ini', APPLICATION_ENV);
 
 //password to gain access
-$password = '';
+$password = $config->resources->db->params->password;
 //directory relative to this file to seaerch for databases (if false, manually list databases in the $databases variable)
-$directory = realpath(dirname(__FILE__)) . '/../../data';
+$directory = realpath(dirname(__FILE__)) . '/../data';
 
 //whether or not to scan the subdirectories of the above directory infinitely deep
 $subdirectories = false;
