@@ -7,15 +7,47 @@
     </div>
 <?php endif; ?>
 
+<?php if ($this->signup): ?>
+<div class="front-signup">
+    <form action="<?php echo $this->signup->getAction(); ?>" method="POST">
+        <ul>
+            <li>
+                <?php echo $this->signup->email->renderViewHelper(); ?>
+                <?php echo $this->signup->email->renderErrors(); ?>
+            </li><li>
+                <?php echo $this->signup->password->renderViewHelper(); ?>
+                <?php echo $this->signup->password->renderErrors(); ?>
+            </li><li>
+                <?php echo $this->signup->repeat->renderViewHelper(); ?>
+                <?php echo $this->signup->repeat->renderErrors(); ?>
+            </li><li>
+                <?php echo $this->signup->submit->renderViewHelper(); ?>
+            </li>
+        </ul>
+        <?php echo $this->signup->hash->renderViewHelper(); ?>
+    </form>
+</div>
+<?php endif; ?>
+<?php if ($this->register): ?>
 <div class="front-register">
-    <?php
-    echo $this->register;
-    ?>
+    <form action="<?php echo $this->register->getAction(); ?>" method="POST">
+        <ul>
+            <li>
+                <?php echo $this->register->charities; ?>
+            </li><li>
+                <?php echo $this->register->categories; ?>
+            </li><li>
+                <?php echo $this->register->gender; ?>
+            </li><li>
+                <?php echo $this->register->age; ?>
+            </li><li>
+                <?php echo $this->register->submit->renderViewHelper(); ?>
+            </li>
+        </ul>
+        <?php echo $this->register->hash->renderViewHelper(); ?>
+    </form>
 </div>
-
-<div class="front-slideshow">
-
-</div>
+<?php endif; ?>
 
 <ul class="features">
     <li class="feature1">

@@ -383,8 +383,8 @@ body {
 
 /* line 73, ../sass/screen.scss */
 h1 {
-  font-size: 2.625em;
-  line-height: 0.595em;
+  font-size: 2.875em;
+  line-height: 0.543em;
 }
 
 /* line 77, ../sass/screen.scss */
@@ -409,7 +409,7 @@ h4 {
 *           Site wide, item specific styling
 **********************************************************/
 /* line 96, ../sass/screen.scss */
-.input, .input-text, .front-register input[type=text], .front-register input[type=password], .input-button, .front-register input[type=submit], .login-button, .top-bar .login a {
+.input, .input-text, .front-signup input[type=text], .front-signup input[type=password], .input-button, .front-signup input[type=submit], .input-button-small, .top-bar .login a {
   display: block;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -421,6 +421,7 @@ h4 {
   height: 2.25em !important;
   width: 15.75em;
   padding: 0.375em !important;
+  margin: 0.75em 0;
   -webkit-border-radius: 0.375em 0.375em;
   -moz-border-radius: 0.375em / 0.375em;
   -o-border-radius: 0.375em / 0.375em;
@@ -430,46 +431,45 @@ h4 {
   border: 0px;
 }
 
-/* line 106, ../sass/screen.scss */
-.input-text, .front-register input[type=text], .front-register input[type=password] {
+/* line 107, ../sass/screen.scss */
+.input-text, .front-signup input[type=text], .front-signup input[type=password] {
   border: 1px solid #666;
 }
 
-/* line 113, ../sass/screen.scss */
-.input-button:active, .front-register input[type=submit]:active {
+/* line 114, ../sass/screen.scss */
+.input-button:active, .front-signup input[type=submit]:active {
   background-color: #666;
 }
 
 /* line 117, ../sass/screen.scss */
-.login-button {
-  margin-left: 43.5em;
+.input-button-small, .top-bar .login a {
   width: 7.5em;
+  text-align: center;
+  height: 1.5em !important;
+  background-color: #CCC;
 }
 
 /**********************************************************
 *           Site wide, Laoyout stuff
 **********************************************************/
-/* line 126, ../sass/screen.scss */
+/* line 129, ../sass/screen.scss */
 #header-logo {
   text-align: center;
 }
 
-/* line 129, ../sass/screen.scss */
+/* line 132, ../sass/screen.scss */
 .top-bar {
   width: 100%;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 133, ../sass/screen.scss */
+/* line 136, ../sass/screen.scss */
 .top-bar .login li {
   list-style: none;
 }
-/* line 136, ../sass/screen.scss */
+/* line 139, ../sass/screen.scss */
 .top-bar .login a {
   float: right;
-  height: 1.5em !important;
-  text-align: center;
-  width: 6.75em !important;
   background-color: #CCC;
 }
 
@@ -566,16 +566,22 @@ Page Specific
   text-align: center;
 }
 
-/* line 231, ../sass/screen.scss */
+/* line 229, ../sass/screen.scss */
+.front-signup ul li {
+  list-style: none;
+}
+
+/* line 234, ../sass/screen.scss */
 .features {
   position: relative;
   text-align: center;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 235, ../sass/screen.scss */
+/* line 238, ../sass/screen.scss */
 .features li {
   float: left;
+  list-style: none;
   text-align: left;
   width: 15.75em;
   padding: 0.375em !important;

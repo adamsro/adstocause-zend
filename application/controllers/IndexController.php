@@ -7,59 +7,37 @@ class IndexController extends Zend_Controller_Action {
     }
 
     public function indexAction() {
-//$this->view->headTitle('Login', 'PREPEND');
-        // action body
-        /*
-         * Get new posts and paginate
+        $this->view->headTitle('Raise money through Advertisments', 'APPEND');
 
-        $posts = new Modsel_DbTable_Posts();
-        $result = $posts->getPosts();
-        $page = $this->_getParam('page', 1);
-        $paginator = Zend_Paginator::factory($result);
-        $paginator->setItemCountPerPage(2);
-        $paginator->setCurrentPageNumber($page);
-        $this->view->paginator = $paginator;
-         * */
-        $this->registerAction();
+        $signup = new Form_Signup();
+        $post = $this->getRequest()->getPost();
+        if (Zend_Auth::getInstance()->hasIdentity()) {
+            $this->_redirect('/index/hello');
+        } else if ($this->getRequest()->isPost() && $signup->isValid($post)) {
+            $this->_forward('register');
+        }
+        $this->view->signup = $signup;
     }
 
     public function loginAction() {
 
-        /*
-         * Creating $loginForm object of class Form_Login
-         */
         $loginForm = new Form_Login();
-        /*
-         * Trying to redirect to the page from which it came
-         */
         $redirect = $this->getRequest()->getParam('redirect', 'index/index');
         $loginForm->setAttrib('redirect', $redirect);
-        /*
-         * Get the Zend_Auth instance
-         */
+
         $auth = Zend_Auth::getInstance();
-        /*
-         * Check whether it has any identity , else check whether the login form is submitted
-         */
+
+        // Check whether it has any identity , else check whether the login form is submitted
         if (Zend_Auth::getInstance()->hasIdentity()) {
             $this->_redirect('/index/hello');
         } else if ($this->getRequest()->isPost()) {
             if ($loginForm->isValid($this->getRequest()->getPost())) {
-                /*
-                 * Get the username
-                 */
+
                 $username = $this->getRequest()->getPost('username');
-                /*
-                 * Get password
-                 */
                 $pwd = $this->getRequest()->getPost('pass');
-                /*
-                 * Create object $authAdapter of class Model_AuthAdapter
-                 */
+
                 $authAdapter = new Model_AuthAdapter($username, $pwd);
-                /*
-                 * Try to authenticate and check whether its valid
-                 */
+
                 $result = $auth->authenticate($authAdapter);
                 if (!$result->isValid()) {
                     switch ($result->getCode()) {
@@ -91,18 +69,39 @@ class IndexController extends Zend_Controller_Action {
     }
 
     public function registerAction() {
-        /*
-         * Register for new account
-         */
+        $post = $this->getRequest()->getPost();
+        if (!isset($post['register-submit']) && !isset($post['signup-submit'])) {
+            $this->_redirect('/');
+        }
+        $signup = new Form_Signup();
         $register = new Form_Registration();
+        $register->setEmail($post['email']);
+        $register->setPassword($post['password']);
+        $charities = array(1 => 'Red Cross', 2 => 'Blue Cross', 3 => 'Green Cross');
+        $register->setCharities($charities);
+        $categories = array(1 => 'Red C ross', 2 => 'Blue Cross', 3 => 'Green Cross');
+        $register->setAdCategories($categories);
+
+        /* either redirects if logged in, displays register form if signup form submitted,
+         * or processes register form if register form submitted */
         if (Zend_Auth::getInstance()->hasIdentity()) {
             $this->_redirect('/index/hello');
-        } else if ($this->getRequest()->isPost()) {
-            if ($register->isValid($this->getRequest()->getPost())) {
-
+        } else if (isset($post['register-submit']) && $register->isValid($post)) {
+            $user = new Model_DbTable_Users();
+            (object) $user = $user->save($post);
+            $auth = Zend_Auth::getInstance();
+            $authAdapter = new Model_AuthAdapter($user->email, $user->password);
+            $result = $auth->authenticate($authAdapter);
+            if (Zend_Auth::getInstance()->hasIdentity()) {
+                $this->_redirect('/watch');
+            } else {
+                throw new Exception($result->getCode());
             }
+        } else if (isset($post['signup-submit']) && $signup->isValid($post)) {
+            unset($this->view->signup);
         }
         $this->view->register = $register;
+        echo $this->view->render('index/index.phtml');
     }
 
     public function forgotPasswordAction() {

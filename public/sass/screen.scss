@@ -71,8 +71,8 @@ body {
 }
 
 h1 {
-    font-size: pxtoem(42);
-    line-height: pxtoem(25,42);
+    font-size: pxtoem(46);
+    line-height: pxtoem(25,46);
 }
 h2 {
     font-size: pxtoem(23);
@@ -100,6 +100,7 @@ h6 {}
     height: pxtoem($line + $line /2) !important;
     width: $cols4 - (pxtoem($line / 4) * 2);
     padding: pxtoem($line / 4) !important;
+    margin: pxtoem($line / 2) 0;
     @include border-radius(pxtoem(6), pxtoem(6));
     border: 0px;
 }
@@ -113,12 +114,14 @@ h6 {}
 .input-button:active {
     background-color: #666;
 }
-
-.login-button {
+.input-button-small {
     @extend .input;
-    margin-left: $cols10;
     width: $cols2;
+    text-align: center;
+    height: pxtoem($line) !important;
+    background-color: #CCC;
 }
+
 
 /**********************************************************
 *           Site wide, Laoyout stuff
@@ -135,10 +138,7 @@ h6 {}
         }
         a {
             float: right;
-            height: pxtoem($line) !important;
-            @extend .input;
-            text-align: center;
-            width: $cols2 - (pxtoem($line / 4) * 2) !important;
+            @extend .input-button-small;
             background-color: #CCC;
         }
     }
@@ -219,13 +219,16 @@ Page Specific
 .front-slogan {
     text-align: center;
 }
-.front-register {
+.front-signup {
     input[type=text], input[type=password] {
         @extend .input-text;
     }
     input[type=submit] {
         @extend .input-button;
     }
+    ul li {
+        list-style: none;
+        }
 }
 
 .features {
@@ -234,6 +237,7 @@ Page Specific
     @include clearfix;
     li {
         float: left;
+        list-style: none;
         text-align: left;
         width: $cols4 - (pxtoem($line / 4) * 2);
         padding: pxtoem($line / 4) !important;
