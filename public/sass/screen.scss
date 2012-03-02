@@ -1,0 +1,241 @@
+// CPA Gardens Central Theme File
+
+/* Welcome to Compass.
+* In this file you should write your main styles. (or centralize your imports)
+* Import this file using the following HTML or equivalent:
+* <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* Contains frameless grid and universal functions and stlyles */
+@import "base";
+
+/*
+Style overrides for IE6-8
+http://jonikorpi.com/leaving-old-IE-behind/
+*/
+.ie {
+
+    /*.ie body {width: 540px;} */
+}
+::selection {
+    background: #F4C960;
+    color: rgba(255, 255, 255, 0.847656);
+    /*    color: rgba(255, 255, 255, 0.847656);*/
+}
+::-moz-selection {
+    color: #fff;
+    background: #F4C960;
+    color: rgba(255, 255, 255, 0.847656);
+    /*    color: rgba(255, 255, 255, 0.847656);*/
+}
+img::selection {
+    background: transparent;
+}
+img::-moz-selection {
+    background: transparent;
+}
+::-webkit-input-placeholder {
+    color:    #666;
+}
+:-moz-placeholder {
+    color:    #666;
+}
+body {
+    -webkit-tap-highlight-color: fadeout(black, 62%);
+    /*    @include transition-property(width);
+    @include transition-duration(0.2s);
+    @include transition-timing-function(ease-out);*/
+}
+
+
+/**********************************************************
+*                 Type Presets
+**********************************************************/
+body {
+    line-height: pxtoem($line);
+    font-family: arial,helvetica,clean,sans-serif;
+}
+.normal, h1, h2, h3, h4 {
+    font-weight: normal;
+    /*    font-size: pxtoem($font-size);*/
+}
+.small{
+    font-size: pxtoem(13);
+    line-height: pxtoem($line, 13); // 24 / 13 * 1em
+}
+.enormous {
+    font-size: pxtoem(46);
+    line-height: pxtoem(50,46);
+}
+.gigantic  {
+    font-size: pxtoem(72);
+    line-height: pxtoem(72,72);
+}
+
+h1 {
+    font-size: pxtoem(42);
+    line-height: pxtoem(25,42);
+}
+h2 {
+    font-size: pxtoem(23);
+    line-height: pxtoem(40,23);
+}
+h3 {
+    font-size: pxtoem(24);
+    line-height: pxtoem(30,24);
+}
+h4 {
+    font-size: pxtoem(20);
+    line-height: pxtoem(20,20);
+}
+h5 {}
+h6 {}
+
+/**********************************************************
+*           Site wide, item specific styling
+**********************************************************/
+
+.input {
+    display: block;
+    @include appearance(none);
+    @include box-sizing(content-box);
+    height: pxtoem($line + $line /2) !important;
+    width: $cols4 - (pxtoem($line / 4) * 2);
+    padding: pxtoem($line / 4) !important;
+    @include border-radius(pxtoem(6), pxtoem(6));
+    border: 0px;
+}
+.input-text {
+    @extend .input;
+    border: 1px solid #666;
+}
+.input-button {
+    @extend .input;
+}
+.input-button:active {
+    background-color: #666;
+}
+
+.login-button {
+    @extend .input;
+    margin-left: $cols10;
+    width: $cols2;
+}
+
+/**********************************************************
+*           Site wide, Laoyout stuff
+**********************************************************/
+#header-logo {
+    text-align: center;
+}
+.top-bar {
+    width: 100%;
+    @include clearfix;
+    .login {
+        li {
+            list-style: none;
+        }
+        a {
+            float: right;
+            height: pxtoem($line) !important;
+            @extend .input;
+            text-align: center;
+            width: $cols2 - (pxtoem($line / 4) * 2) !important;
+            background-color: #CCC;
+        }
+    }
+}
+
+/**********************************************************
+*          Default Layout: $cols12 (only layout for IE)
+**********************************************************/
+
+body {
+    font-size: pxtoem($font-size + 1);
+}
+header, section, footer {
+    position: relative;
+    @include clearfix;
+}
+body {
+    position: relative;
+    margin: 0 auto;
+    width: $cols12;
+}
+
+/* Admin menu */
+body.admin-menu {}
+body.admin-menu #container {}
+
+
+/*
+Mobile layout
+
+*/
+@media screen and (max-width: 29em) {
+    .section-container { width: $cols4; }
+    /*        body { font-size: pxtoem($font-size + 1); }*/
+}
+/*
+Wide mobile layout
+
+*/
+@media screen and (min-width: 29em) and (max-width: 39em) {
+    body { width: $cols6; }
+    /*    body { font-size: pxtoem($font-size + 1); }*/
+    //    body {font-size: pxtoem($font-size);}
+}
+/*
+Tablet layout
+
+*/
+@media screen and (min-width: 39em) and (max-width: 49em) {
+    body { width: $cols8; }
+    /*    body { font-size: pxtoem($font-size + 1); }*/
+}
+
+@media screen and (min-width: 49em) and (max-width: 59em) {
+    body { width: $cols10; }
+}
+/*
+Widescreen layout
+
+*/
+@media screen and (min-width: 59em) and (max-width: 95em) {
+    /*
+    Default, $cols12
+    body{ font-size: pxtoem($font-size + 2); }
+    */
+}
+/*
+Huge-screen layout
+
+*/
+@media screen and (min-width: 95em) {
+    body{ font-size: pxtoem($font-size + 2); }
+}
+/* ------------------------------------------------------
+Page Specific
+------------------------------------------------------ */
+
+.front-slogan {
+    text-align: center;
+}
+.front-register {
+    input[type=text], input[type=password] {
+        @extend .input-text;
+    }
+    input[type=submit] {
+        @extend .input-button;
+    }
+}
+
+.features {
+    position: relative;
+    text-align: center;
+    @include clearfix;
+    li {
+        float: left;
+        text-align: left;
+        width: $cols4 - (pxtoem($line / 4) * 2);
+        padding: pxtoem($line / 4) !important;
+    }
+}

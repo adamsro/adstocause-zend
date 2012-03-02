@@ -1,3 +1,4 @@
 nbproject
 data/logs/*
 application/configs/application.ini
+/public/.sass-cache/

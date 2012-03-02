@@ -1,18 +1,18 @@
 <?php
 
-class IndexController extends Zend_Controller_Action {
+class BaseController extends Zend_Controller_Action {
 
     public function init() {
+        $this->loginAction();
         /* Initialize action controller here */
     }
 
     public function indexAction() {
-//$this->view->headTitle('Login', 'PREPEND');
-        // action body
+
         /*
          * Get new posts and paginate
 
-        $posts = new Modsel_DbTable_Posts();
+        $posts = new Model_DbTable_Posts();
         $result = $posts->getPosts();
         $page = $this->_getParam('page', 1);
         $paginator = Zend_Paginator::factory($result);
@@ -20,11 +20,9 @@ class IndexController extends Zend_Controller_Action {
         $paginator->setCurrentPageNumber($page);
         $this->view->paginator = $paginator;
          * */
-        $this->registerAction();
+
     }
-
     public function loginAction() {
-
         /*
          * Creating $loginForm object of class Form_Login
          */
@@ -79,51 +77,6 @@ class IndexController extends Zend_Controller_Action {
          * Assign the form elements to view
          */
         $this->view->loginForm = $loginForm;
-    }
-
-    public function logoutAction() {
-        /*
-         * Logout and clear session
-         */
-        $auth = Zend_Auth::getInstance();
-        $auth->clearIdentity();
-        $this->_redirect('/');
-    }
-
-    public function registerAction() {
-        /*
-         * Register for new account
-         */
-        $register = new Form_Registration();
-        if (Zend_Auth::getInstance()->hasIdentity()) {
-            $this->_redirect('/index/hello');
-        } else if ($this->getRequest()->isPost()) {
-            if ($register->isValid($this->getRequest()->getPost())) {
-
-            }
-        }
-        $this->view->register = $register;
-    }
-
-    public function forgotPasswordAction() {
-        /*
-         * User submits for new password
-         */
-        $forgotPassword = new Form_ForgotPassword();
-        if (Zend_Auth::getInstance()->hasIdentity()) {
-            $this->_redirect('/index/hello');
-        } else if ($this->getRequest()->isPost()) {
-            if ($forgotPassword->isValid($this->getRequest()->getPost())) {
-
-            }
-        }
-        $this->view->forgotPassword = $forgotPassword;
-    }
-
-    public function sitemapAction() {
-        $this->view->layout()->disableLayout();
-        $this->_helper->viewRenderer->setNoRender(true);
-        echo $this->view->navigation()->sitemap();
     }
 
 }

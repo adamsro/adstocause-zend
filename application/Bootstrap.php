@@ -18,5 +18,16 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
 //        $router = Zend_Controller_Front::getInstance()->getRouter();
 //        $router->addConfig($config, 'routes');
 //    }
+    protected function _initViewSettings() {
+
+        //$layout->setLayout('layout');
+        $this->bootstrap('layout');
+        $layout = $this->getResource('layout');
+        $this->_view = $layout->getView();
+        $this->_view->addHelperPath(APPLICATION_PATH . '/views/helpers', 'Zend_View_Helper');
+
+        $this->_view->headTitle()->setSeparator(' | ');
+        $this->_view->headTitle("Ads to Cause");
+    }
 
 }

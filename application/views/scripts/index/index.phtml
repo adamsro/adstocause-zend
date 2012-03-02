@@ -1,12 +1,42 @@
-<?php if (count($this->paginator)): ?>
-<?php foreach ($this->paginator as $post ): ?>
-<div class="post">
-  <div class="title"><a href="<?php echo $this->baseUrl()."/posts/view/id/".$post['id']; ?>"><?php echo $this->escape($post['Title']); ?></a></div>
-  <div class="description"><?php echo nl2br(substr( strip_tags( $post['Description']), 0 , 300)); ?></div>
-  <div class="commentscount">Comments( count )</div>
-</div>
-<?php endforeach; ?>
+
+<h2 class="front-slogan">Make money for your favorite charities by watching two minute advertisements!</h2>
+
+<?php if ($this->error): ?>
+    <div class="errors">
+        <?php echo $this->error; ?>
+    </div>
 <?php endif; ?>
-<div class="pagination"><?php echo $this->paginationControl($this->paginator,
-                                    'Sliding',
-                                    '/partials/my_pagination_control.phtml'); ?></div>
+
+<div class="front-register">
+    <?php
+    echo $this->register;
+    ?>
+</div>
+
+<div class="front-slideshow">
+
+</div>
+
+<ul class="features">
+    <li class="feature1">
+        <h3>Feature 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+            mollis vestibulum tellus quis pulvinar. Praesent porta malesuada
+            metus vel adipiscing. Donec tincidunt ipsum et lectus sagittis porttitor.
+            Nunc imperdiet neque et justo varius egestas. Maecenas mattis.</p>
+    </li>
+    <li class="feature2">
+        <h3>Feature 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+            mollis vestibulum tellus quis pulvinar. Praesent porta malesuada
+            metus vel adipiscing. Donec tincidunt ipsum et lectus sagittis porttitor.
+            Nunc imperdiet neque et justo varius egestas. Maecenas mattis.</p>
+    </li>
+    <li class="feature3">
+        <h3>Feature 3</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+            mollis vestibulum tellus quis pulvinar. Praesent porta malesuada
+            metus vel adipiscing. Donec tincidunt ipsum et lectus sagittis porttitor.
+            Nunc imperdiet neque et justo varius egestas. Maecenas mattis.</p>
+    </li>
+</ul>

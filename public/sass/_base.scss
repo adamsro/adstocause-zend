@@ -1,0 +1,218 @@
+/**
+Compass Imports
+http://compass-style.org/
+*/
+
+@import "compass";
+
+/*
+Frameless			<http://framelessgrid.com/>
+by Joni Korpi 		<http://jonikorpi.com/>
+licensed under CC0	<http://creativecommons.org/publicdomain/zero/1.0/>
+*/
+$font-size: 16; 		/* Your base font-size in pixels */
+$line: 24;
+$em: $font-size / 1em;	// Shorthand for outputting ems
+
+
+$column: 48;	// The column-width of your grid in pixels
+$gutter: 24;	// The gutter-width of your grid in pixels
+
+//
+// Column-widths in variables, in ems
+//
+$cols1: ( 1 * ($column + $gutter) - $gutter) / $em;
+$cols2: ( 2 * ($column + $gutter) - $gutter) / $em;
+$cols3: ( 3 * ($column + $gutter) - $gutter) / $em;
+$cols4: ( 4 * ($column + $gutter) - $gutter) / $em;
+$cols5: ( 5 * ($column + $gutter) - $gutter) / $em;
+$cols6: ( 6 * ($column + $gutter) - $gutter) / $em;
+$cols7: ( 7 * ($column + $gutter) - $gutter) / $em;
+$cols8: ( 8 * ($column + $gutter) - $gutter) / $em;
+$cols9: ( 9 * ($column + $gutter) - $gutter) / $em;
+$cols10: (10 * ($column + $gutter) - $gutter) / $em;
+$cols11: (11 * ($column + $gutter) - $gutter) / $em;
+$cols12: (12 * ($column + $gutter) - $gutter) / $em;
+$cols13: (13 * ($column + $gutter) - $gutter) / $em;
+$cols14: (14 * ($column + $gutter) - $gutter) / $em;
+$cols15: (15 * ($column + $gutter) - $gutter) / $em;
+$cols16: (16 * ($column + $gutter) - $gutter) / $em;
+
+//
+// Column-widths in a function, in ems
+//
+@mixin width ($cols:1) {
+    width: ($cols * ($column + $gutter) - $gutter) / $em;
+}
+
+/*
+	Consistency fixes
+	adopted from http://necolas.github.com/normalize.css/
+*/
+
+html {
+	height: 100%;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+/*body {
+	min-height: 99%;  MODIFIED to prevent slight body scroll
+	font-size: 100%;
+}*/
+article, aside, details, figcaption, figure,
+footer, header, hgroup, nav, section, audio, canvas, video {
+	display: block;
+}
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
+}
+pre {
+	white-space: pre;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+b, strong {
+	font-weight: bold;
+}
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+input, textarea, button, select {
+	margin: 0;
+	font-size: 100%;
+	line-height: normal;
+	vertical-align: baseline;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    cursor: pointer;
+    -webkit-appearance: button;
+}
+input[type="checkbox"],
+input[type="radio"] {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+		 -o-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+			box-sizing: border-box;
+}
+textarea {
+	overflow: auto;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+a img, img {
+	-ms-interpolation-mode: bicubic;
+	border: 0;
+}
+
+/*
+An easy way to zoom your entire layout in or out (as long as it's set in ems).
+Just change the media queries to activate them.
+Assuming your base font-size is 16:
+- the first one zooms out by a factor of (16-2)/16 = 0.875
+- the second one zooms in by a factor of (16+2)/16 = 1.125
+
+
+@media screen and (max-width: 650px) {
+    body {
+        font-size: ($font-size - 2) / $em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: ($font-size + 2) / $em;
+  zzxx  }
+}
+*/
+
+/**
+            CPA FUNCTIONS
+**/
+
+/*
+exaample:
+h2 { padding-left: calc-em(12px, 32px); }  => h2 { padding-left: .375em; }
+*/
+@function pxtoem($target-px, $context: $font-size) {
+  @return ($target-px / $context) * 1em;
+}
+/*
+http://thesassway.com/intermediate/responsive-web-design-part-1
+*/
+@mixin scale-image-ie($image) {
+  background: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(
+    src="#{image_url($image, true, false)}",
+    sizingMethod="scale"
+  );
+}
+/*
+    Completly hide an element, without display: hidden. for SEO optimization,
+blackhat SEO. Do not over use.
+*/
+@mixin no-display{ position: absolute;  left: -9999px; width: 1em; overflow: hidden; }
+
+
+#grid {
+    margin-top: 2em;
+    height: $cols2;
+    position: relative;
+    overflow: hidden;
+}
+.col {
+    background-color: transparentize(black, 0.9);
+    height: 100%;
+    width: $cols1;
+    position: absolute;
+    left: 50%; top: 0;
+    margin-left: pxtoem(12);
+}
+#grid .col {
+    /*		.transition(background-color 0.382s ease-out);*/
+}
+.col1, .col2, .col3, .col4, .col19, .col20, .col21, .col22 {
+    background: transparentize(black, 0.7);
+}
+.col1, .col2, .col19, .col20 {
+    background: transparentize(black, 0.4);
+}
+.col2 {margin-left: pxtoem(1*72+12);}
+.col3 {margin-left: pxtoem(2*72+12);}
+.col4 {margin-left: pxtoem(3*72+12);}
+.col5 {margin-left: pxtoem(4*72+12);}
+.col6 {margin-left: pxtoem(5*72+12);}
+.col7 {margin-left: pxtoem(6*72+12);}
+.col8 {margin-left: pxtoem(7*72+12);}
+.col9 {margin-left: pxtoem(8*72+12);}
+.col10 {margin-left: pxtoem(9*72+12);}
+.col11 {margin-left: pxtoem(10*72+12);}
+.col12 {margin-left: pxtoem(11*72+12);}
+.col13 {margin-left: pxtoem(12*72+12);}
+.col14 {margin-left: pxtoem(13*72+12);}
+.col15 {margin-left: pxtoem(14*72+12);}
+.col16 {margin-left: pxtoem(15*72+12);}
+.col17 {margin-left: pxtoem(16*72+12);}
+.col18 {margin-left: pxtoem(17*72+12);}
+.col19 {margin-left: -(pxtoem(60));}
+.col20 {margin-left: -(pxtoem(132));}
+.col21 {margin-left: -(pxtoem(204));}
+.col22 {margin-left: -(pxtoem(276));}
+.col23 {margin-left: -(pxtoem(348));}
+.col24 {margin-left: -(pxtoem(420));} // 6*72-12
+
+

@@ -1,0 +1,582 @@
+/* Welcome to Compass.
+* In this file you should write your main styles. (or centralize your imports)
+* Import this file using the following HTML or equivalent:
+* <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* Contains frameless grid and universal functions and stlyles */
+/**
+Compass Imports
+http://compass-style.org/
+*/
+/*
+Frameless			<http://framelessgrid.com/>
+by Joni Korpi 		<http://jonikorpi.com/>
+licensed under CC0	<http://creativecommons.org/publicdomain/zero/1.0/>
+*/
+/* Your base font-size in pixels */
+/*
+	Consistency fixes
+	adopted from http://necolas.github.com/normalize.css/
+*/
+/* line 53, ../sass/_base.scss */
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/*body {
+	min-height: 99%;  MODIFIED to prevent slight body scroll
+	font-size: 100%;
+}*/
+/* line 63, ../sass/_base.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, nav, section, audio, canvas, video {
+  display: block;
+}
+
+/* line 66, ../sass/_base.scss */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 72, ../sass/_base.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 75, ../sass/_base.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* line 78, ../sass/_base.scss */
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* line 83, ../sass/_base.scss */
+b, strong {
+  font-weight: bold;
+}
+
+/* line 86, ../sass/_base.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/* line 89, ../sass/_base.scss */
+input, textarea, button, select {
+  margin: 0;
+  font-size: 100%;
+  line-height: normal;
+  vertical-align: baseline;
+}
+
+/* line 98, ../sass/_base.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+
+/* line 103, ../sass/_base.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 110, ../sass/_base.scss */
+textarea {
+  overflow: auto;
+}
+
+/* line 113, ../sass/_base.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 117, ../sass/_base.scss */
+a img, img {
+  -ms-interpolation-mode: bicubic;
+  border: 0;
+}
+
+/*
+An easy way to zoom your entire layout in or out (as long as it's set in ems).
+Just change the media queries to activate them.
+Assuming your base font-size is 16:
+- the first one zooms out by a factor of (16-2)/16 = 0.875
+- the second one zooms in by a factor of (16+2)/16 = 1.125
+
+
+@media screen and (max-width: 650px) {
+    body {
+        font-size: ($font-size - 2) / $em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: ($font-size + 2) / $em;
+  zzxx  }
+}
+*/
+/**
+            CPA FUNCTIONS
+**/
+/*
+exaample:
+h2 { padding-left: calc-em(12px, 32px); }  => h2 { padding-left: .375em; }
+*/
+/*
+http://thesassway.com/intermediate/responsive-web-design-part-1
+*/
+/*
+    Completly hide an element, without display: hidden. for SEO optimization,
+blackhat SEO. Do not over use.
+*/
+/* line 170, ../sass/_base.scss */
+#grid {
+  margin-top: 2em;
+  height: 7.5em;
+  position: relative;
+  overflow: hidden;
+}
+
+/* line 176, ../sass/_base.scss */
+.col {
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 100%;
+  width: 3em;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: 0.75em;
+}
+
+/* line 184, ../sass/_base.scss */
+#grid .col {
+  /*		.transition(background-color 0.382s ease-out);*/
+}
+
+/* line 187, ../sass/_base.scss */
+.col1, .col2, .col3, .col4, .col19, .col20, .col21, .col22 {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* line 190, ../sass/_base.scss */
+.col1, .col2, .col19, .col20 {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* line 193, ../sass/_base.scss */
+.col2 {
+  margin-left: 5.25em;
+}
+
+/* line 194, ../sass/_base.scss */
+.col3 {
+  margin-left: 9.75em;
+}
+
+/* line 195, ../sass/_base.scss */
+.col4 {
+  margin-left: 14.25em;
+}
+
+/* line 196, ../sass/_base.scss */
+.col5 {
+  margin-left: 18.75em;
+}
+
+/* line 197, ../sass/_base.scss */
+.col6 {
+  margin-left: 23.25em;
+}
+
+/* line 198, ../sass/_base.scss */
+.col7 {
+  margin-left: 27.75em;
+}
+
+/* line 199, ../sass/_base.scss */
+.col8 {
+  margin-left: 32.25em;
+}
+
+/* line 200, ../sass/_base.scss */
+.col9 {
+  margin-left: 36.75em;
+}
+
+/* line 201, ../sass/_base.scss */
+.col10 {
+  margin-left: 41.25em;
+}
+
+/* line 202, ../sass/_base.scss */
+.col11 {
+  margin-left: 45.75em;
+}
+
+/* line 203, ../sass/_base.scss */
+.col12 {
+  margin-left: 50.25em;
+}
+
+/* line 204, ../sass/_base.scss */
+.col13 {
+  margin-left: 54.75em;
+}
+
+/* line 205, ../sass/_base.scss */
+.col14 {
+  margin-left: 59.25em;
+}
+
+/* line 206, ../sass/_base.scss */
+.col15 {
+  margin-left: 63.75em;
+}
+
+/* line 207, ../sass/_base.scss */
+.col16 {
+  margin-left: 68.25em;
+}
+
+/* line 208, ../sass/_base.scss */
+.col17 {
+  margin-left: 72.75em;
+}
+
+/* line 209, ../sass/_base.scss */
+.col18 {
+  margin-left: 77.25em;
+}
+
+/* line 210, ../sass/_base.scss */
+.col19 {
+  margin-left: -3.75em;
+}
+
+/* line 211, ../sass/_base.scss */
+.col20 {
+  margin-left: -8.25em;
+}
+
+/* line 212, ../sass/_base.scss */
+.col21 {
+  margin-left: -12.75em;
+}
+
+/* line 213, ../sass/_base.scss */
+.col22 {
+  margin-left: -17.25em;
+}
+
+/* line 214, ../sass/_base.scss */
+.col23 {
+  margin-left: -21.75em;
+}
+
+/* line 215, ../sass/_base.scss */
+.col24 {
+  margin-left: -26.25em;
+}
+
+/*
+Style overrides for IE6-8
+http://jonikorpi.com/leaving-old-IE-behind/
+*/
+/* line 14, ../sass/screen.scss */
+.ie {
+  /*.ie body {width: 540px;} */
+}
+
+/* line 18, ../sass/screen.scss */
+::selection {
+  background: #F4C960;
+  color: rgba(255, 255, 255, 0.848);
+  /*    color: rgba(255, 255, 255, 0.847656);*/
+}
+
+/* line 23, ../sass/screen.scss */
+::-moz-selection {
+  color: #fff;
+  background: #F4C960;
+  color: rgba(255, 255, 255, 0.848);
+  /*    color: rgba(255, 255, 255, 0.847656);*/
+}
+
+/* line 29, ../sass/screen.scss */
+img::selection {
+  background: transparent;
+}
+
+/* line 32, ../sass/screen.scss */
+img::-moz-selection {
+  background: transparent;
+}
+
+/* line 35, ../sass/screen.scss */
+::-webkit-input-placeholder {
+  color: #666;
+}
+
+/* line 38, ../sass/screen.scss */
+:-moz-placeholder {
+  color: #666;
+}
+
+/* line 41, ../sass/screen.scss */
+body {
+  -webkit-tap-highlight-color: fadeout(black, 62%);
+  /*    @include transition-property(width);
+  @include transition-duration(0.2s);
+  @include transition-timing-function(ease-out);*/
+}
+
+/**********************************************************
+*                 Type Presets
+**********************************************************/
+/* line 52, ../sass/screen.scss */
+body {
+  line-height: 1.5em;
+  font-family: arial,helvetica,clean,sans-serif;
+}
+
+/* line 56, ../sass/screen.scss */
+.normal, h1, h2, h3, h4 {
+  font-weight: normal;
+  /*    font-size: pxtoem($font-size);*/
+}
+
+/* line 60, ../sass/screen.scss */
+.small {
+  font-size: 0.813em;
+  line-height: 1.846em;
+}
+
+/* line 64, ../sass/screen.scss */
+.enormous {
+  font-size: 2.875em;
+  line-height: 1.087em;
+}
+
+/* line 68, ../sass/screen.scss */
+.gigantic {
+  font-size: 4.5em;
+  line-height: 1em;
+}
+
+/* line 73, ../sass/screen.scss */
+h1 {
+  font-size: 2.625em;
+  line-height: 0.595em;
+}
+
+/* line 77, ../sass/screen.scss */
+h2 {
+  font-size: 1.438em;
+  line-height: 1.739em;
+}
+
+/* line 81, ../sass/screen.scss */
+h3 {
+  font-size: 1.5em;
+  line-height: 1.25em;
+}
+
+/* line 85, ../sass/screen.scss */
+h4 {
+  font-size: 1.25em;
+  line-height: 1em;
+}
+
+/**********************************************************
+*           Site wide, item specific styling
+**********************************************************/
+/* line 96, ../sass/screen.scss */
+.input, .input-text, .front-register input[type=text], .front-register input[type=password], .input-button, .front-register input[type=submit], .login-button, .top-bar .login a {
+  display: block;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -ms-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 2.25em !important;
+  width: 15.75em;
+  padding: 0.375em !important;
+  -webkit-border-radius: 0.375em 0.375em;
+  -moz-border-radius: 0.375em / 0.375em;
+  -o-border-radius: 0.375em / 0.375em;
+  -ms-border-radius: 0.375em / 0.375em;
+  -khtml-border-radius: 0.375em / 0.375em;
+  border-radius: 0.375em / 0.375em;
+  border: 0px;
+}
+
+/* line 106, ../sass/screen.scss */
+.input-text, .front-register input[type=text], .front-register input[type=password] {
+  border: 1px solid #666;
+}
+
+/* line 113, ../sass/screen.scss */
+.input-button:active, .front-register input[type=submit]:active {
+  background-color: #666;
+}
+
+/* line 117, ../sass/screen.scss */
+.login-button {
+  margin-left: 43.5em;
+  width: 7.5em;
+}
+
+/**********************************************************
+*           Site wide, Laoyout stuff
+**********************************************************/
+/* line 126, ../sass/screen.scss */
+#header-logo {
+  text-align: center;
+}
+
+/* line 129, ../sass/screen.scss */
+.top-bar {
+  width: 100%;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 133, ../sass/screen.scss */
+.top-bar .login li {
+  list-style: none;
+}
+/* line 136, ../sass/screen.scss */
+.top-bar .login a {
+  float: right;
+  height: 1.5em !important;
+  text-align: center;
+  width: 6.75em !important;
+  background-color: #CCC;
+}
+
+/**********************************************************
+*          Default Layout: $cols12 (only layout for IE)
+**********************************************************/
+/* line 151, ../sass/screen.scss */
+body {
+  font-size: 1.063em;
+}
+
+/* line 154, ../sass/screen.scss */
+header, section, footer {
+  position: relative;
+  overflow: hidden;
+  *zoom: 1;
+}
+
+/* line 158, ../sass/screen.scss */
+body {
+  position: relative;
+  margin: 0 auto;
+  width: 52.5em;
+}
+
+/* Admin menu */
+/*
+Mobile layout
+
+*/
+@media screen and (max-width: 29em) {
+  /* line 174, ../sass/screen.scss */
+  .section-container {
+    width: 16.5em;
+  }
+
+  /*        body { font-size: pxtoem($font-size + 1); }*/
+}
+/*
+Wide mobile layout
+
+*/
+@media screen and (min-width: 29em) and (max-width: 39em) {
+  /* line 182, ../sass/screen.scss */
+  body {
+    width: 25.5em;
+  }
+
+  /*    body { font-size: pxtoem($font-size + 1); }*/
+}
+/*
+Tablet layout
+
+*/
+@media screen and (min-width: 39em) and (max-width: 49em) {
+  /* line 191, ../sass/screen.scss */
+  body {
+    width: 34.5em;
+  }
+
+  /*    body { font-size: pxtoem($font-size + 1); }*/
+}
+@media screen and (min-width: 49em) and (max-width: 59em) {
+  /* line 196, ../sass/screen.scss */
+  body {
+    width: 43.5em;
+  }
+}
+/*
+Widescreen layout
+
+*/
+@media screen and (min-width: 59em) and (max-width: 95em) {
+  /*
+  Default, $cols12
+  body{ font-size: pxtoem($font-size + 2); }
+  */
+}
+/*
+Huge-screen layout
+
+*/
+@media screen and (min-width: 95em) {
+  /* line 213, ../sass/screen.scss */
+  body {
+    font-size: 1.125em;
+  }
+}
+/* ------------------------------------------------------
+Page Specific
+------------------------------------------------------ */
+/* line 219, ../sass/screen.scss */
+.front-slogan {
+  text-align: center;
+}
+
+/* line 231, ../sass/screen.scss */
+.features {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 235, ../sass/screen.scss */
+.features li {
+  float: left;
+  text-align: left;
+  width: 15.75em;
+  padding: 0.375em !important;
+}
