@@ -1,19 +1,19 @@
 <?php
 class Model_AuthAdapter implements Zend_Auth_Adapter_Interface
 {
-	protected $username;
+	protected $email;
 	protected $password;
 	protected $user;
-	
-	public function __construct($username, $password) {
-		$this->username = $username;
+
+	public function __construct($email, $password) {
+		$this->email = $email;
 		$this->password = $password;
 		$this->user = new Model_DbTable_Users();
 	}
-	
+
 	public function authenticate()
 	{
-		$match = $this->user->findCredentials($this->username, $this->password);
+		$match = $this->user->findCredentials($this->email, $this->password);
 		//var_dump($match);
 		if(!$match) {
 			$result = new Zend_Auth_Result(Zend_Auth_Result::FAILURE_CREDENTIAL_INVALID, null);
@@ -23,5 +23,5 @@ class Model_AuthAdapter implements Zend_Auth_Adapter_Interface
 		}
 		return $result;
 	}
-	
+
 }

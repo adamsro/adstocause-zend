@@ -44,6 +44,9 @@ body {
     @include transition-duration(0.2s);
     @include transition-timing-function(ease-out);*/
 }
+li {
+    list-style: none;
+}
 
 
 /**********************************************************
@@ -121,6 +124,10 @@ h6 {}
     height: pxtoem($line) !important;
     background-color: #CCC;
 }
+.errors {
+    color: #A90F14;
+
+}
 
 
 /**********************************************************
@@ -133,11 +140,11 @@ h6 {}
     width: 100%;
     @include clearfix;
     .login {
+        float: right;
         li {
             list-style: none;
         }
-        a {
-            float: right;
+        a.login-button {
             @extend .input-button-small;
             background-color: #CCC;
         }
@@ -228,7 +235,7 @@ Page Specific
     }
     ul li {
         list-style: none;
-        }
+    }
 }
 
 .features {
@@ -242,4 +249,24 @@ Page Specific
         width: $cols4 - (pxtoem($line / 4) * 2);
         padding: pxtoem($line / 4) !important;
     }
+}
+
+.view-banner {
+    width: 100%;
+    background-color: #CCC;
+}
+.view-video {
+    margin: 0 auto;
+    width: $cols8;
+    height: $line * 6 !important;
+    background-color: #000;
+}
+.view-prev {
+
+}
+.view-tally {
+
+}
+.view-charities {
+
 }

@@ -11,12 +11,16 @@ class IndexController extends Zend_Controller_Action {
 
         $signup = new Form_Signup();
         $post = $this->getRequest()->getPost();
-        if (Zend_Auth::getInstance()->hasIdentity()) {
-            $this->_redirect('/index/hello');
-        } else if ($this->getRequest()->isPost() && $signup->isValid($post)) {
+        if ($this->getRequest()->isPost() && $signup->isValid($post)) {
             $this->_forward('register');
         }
         $this->view->signup = $signup;
+    }
+
+    public function helloAction() {
+        if (!Zend_Auth::getInstance()->hasIdentity()) {
+            $this->_redirect('/');
+        }
     }
 
     public function loginAction() {
@@ -29,7 +33,7 @@ class IndexController extends Zend_Controller_Action {
 
         // Check whether it has any identity , else check whether the login form is submitted
         if (Zend_Auth::getInstance()->hasIdentity()) {
-            $this->_redirect('/index/hello');
+            $this->_redirect('/watch');
         } else if ($this->getRequest()->isPost()) {
             if ($loginForm->isValid($this->getRequest()->getPost())) {
 
@@ -88,9 +92,9 @@ class IndexController extends Zend_Controller_Action {
             $this->_redirect('/index/hello');
         } else if (isset($post['register-submit']) && $register->isValid($post)) {
             $user = new Model_DbTable_Users();
-            (object) $user = $user->save($post);
+            $user->save($post);
             $auth = Zend_Auth::getInstance();
-            $authAdapter = new Model_AuthAdapter($user->email, $user->password);
+            $authAdapter = new Model_AuthAdapter($post['email'], $post['password']);
             $result = $auth->authenticate($authAdapter);
             if (Zend_Auth::getInstance()->hasIdentity()) {
                 $this->_redirect('/watch');

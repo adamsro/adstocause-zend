@@ -348,58 +348,63 @@ body {
   @include transition-timing-function(ease-out);*/
 }
 
+/* line 47, ../sass/screen.scss */
+li {
+  list-style: none;
+}
+
 /**********************************************************
 *                 Type Presets
 **********************************************************/
-/* line 52, ../sass/screen.scss */
+/* line 55, ../sass/screen.scss */
 body {
   line-height: 1.5em;
   font-family: arial,helvetica,clean,sans-serif;
 }
 
-/* line 56, ../sass/screen.scss */
+/* line 59, ../sass/screen.scss */
 .normal, h1, h2, h3, h4 {
   font-weight: normal;
   /*    font-size: pxtoem($font-size);*/
 }
 
-/* line 60, ../sass/screen.scss */
+/* line 63, ../sass/screen.scss */
 .small {
   font-size: 0.813em;
   line-height: 1.846em;
 }
 
-/* line 64, ../sass/screen.scss */
+/* line 67, ../sass/screen.scss */
 .enormous {
   font-size: 2.875em;
   line-height: 1.087em;
 }
 
-/* line 68, ../sass/screen.scss */
+/* line 71, ../sass/screen.scss */
 .gigantic {
   font-size: 4.5em;
   line-height: 1em;
 }
 
-/* line 73, ../sass/screen.scss */
+/* line 76, ../sass/screen.scss */
 h1 {
   font-size: 2.875em;
   line-height: 0.543em;
 }
 
-/* line 77, ../sass/screen.scss */
+/* line 80, ../sass/screen.scss */
 h2 {
   font-size: 1.438em;
   line-height: 1.739em;
 }
 
-/* line 81, ../sass/screen.scss */
+/* line 84, ../sass/screen.scss */
 h3 {
   font-size: 1.5em;
   line-height: 1.25em;
 }
 
-/* line 85, ../sass/screen.scss */
+/* line 88, ../sass/screen.scss */
 h4 {
   font-size: 1.25em;
   line-height: 1em;
@@ -408,8 +413,8 @@ h4 {
 /**********************************************************
 *           Site wide, item specific styling
 **********************************************************/
-/* line 96, ../sass/screen.scss */
-.input, .input-text, .front-signup input[type=text], .front-signup input[type=password], .input-button, .front-signup input[type=submit], .input-button-small, .top-bar .login a {
+/* line 99, ../sass/screen.scss */
+.input, .input-text, .front-signup input[type=text], .front-signup input[type=password], .input-button, .front-signup input[type=submit], .input-button-small, .top-bar .login a.login-button {
   display: block;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -431,64 +436,72 @@ h4 {
   border: 0px;
 }
 
-/* line 107, ../sass/screen.scss */
+/* line 110, ../sass/screen.scss */
 .input-text, .front-signup input[type=text], .front-signup input[type=password] {
   border: 1px solid #666;
 }
 
-/* line 114, ../sass/screen.scss */
+/* line 117, ../sass/screen.scss */
 .input-button:active, .front-signup input[type=submit]:active {
   background-color: #666;
 }
 
-/* line 117, ../sass/screen.scss */
-.input-button-small, .top-bar .login a {
+/* line 120, ../sass/screen.scss */
+.input-button-small, .top-bar .login a.login-button {
   width: 7.5em;
   text-align: center;
   height: 1.5em !important;
   background-color: #CCC;
 }
 
+/* line 127, ../sass/screen.scss */
+.errors {
+  color: #A90F14;
+}
+
 /**********************************************************
 *           Site wide, Laoyout stuff
 **********************************************************/
-/* line 129, ../sass/screen.scss */
+/* line 136, ../sass/screen.scss */
 #header-logo {
   text-align: center;
 }
 
-/* line 132, ../sass/screen.scss */
+/* line 139, ../sass/screen.scss */
 .top-bar {
   width: 100%;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 136, ../sass/screen.scss */
+/* line 142, ../sass/screen.scss */
+.top-bar .login {
+  float: right;
+}
+/* line 144, ../sass/screen.scss */
 .top-bar .login li {
   list-style: none;
 }
-/* line 139, ../sass/screen.scss */
-.top-bar .login a {
-  float: right;
+/* line 147, ../sass/screen.scss */
+.top-bar .login a.login-button {
   background-color: #CCC;
 }
 
 /**********************************************************
 *          Default Layout: $cols12 (only layout for IE)
 **********************************************************/
-/* line 151, ../sass/screen.scss */
+/* line 158, ../sass/screen.scss */
 body {
   font-size: 1.063em;
 }
 
-/* line 154, ../sass/screen.scss */
+/* line 161, ../sass/screen.scss */
 header, section, footer {
   position: relative;
   overflow: hidden;
   *zoom: 1;
 }
 
-/* line 158, ../sass/screen.scss */
+/* line 165, ../sass/screen.scss */
 body {
   position: relative;
   margin: 0 auto;
@@ -501,7 +514,7 @@ Mobile layout
 
 */
 @media screen and (max-width: 29em) {
-  /* line 174, ../sass/screen.scss */
+  /* line 181, ../sass/screen.scss */
   .section-container {
     width: 16.5em;
   }
@@ -513,7 +526,7 @@ Wide mobile layout
 
 */
 @media screen and (min-width: 29em) and (max-width: 39em) {
-  /* line 182, ../sass/screen.scss */
+  /* line 189, ../sass/screen.scss */
   body {
     width: 25.5em;
   }
@@ -525,7 +538,7 @@ Tablet layout
 
 */
 @media screen and (min-width: 39em) and (max-width: 49em) {
-  /* line 191, ../sass/screen.scss */
+  /* line 198, ../sass/screen.scss */
   body {
     width: 34.5em;
   }
@@ -533,7 +546,7 @@ Tablet layout
   /*    body { font-size: pxtoem($font-size + 1); }*/
 }
 @media screen and (min-width: 49em) and (max-width: 59em) {
-  /* line 196, ../sass/screen.scss */
+  /* line 203, ../sass/screen.scss */
   body {
     width: 43.5em;
   }
@@ -553,7 +566,7 @@ Huge-screen layout
 
 */
 @media screen and (min-width: 95em) {
-  /* line 213, ../sass/screen.scss */
+  /* line 220, ../sass/screen.scss */
   body {
     font-size: 1.125em;
   }
@@ -561,28 +574,42 @@ Huge-screen layout
 /* ------------------------------------------------------
 Page Specific
 ------------------------------------------------------ */
-/* line 219, ../sass/screen.scss */
+/* line 226, ../sass/screen.scss */
 .front-slogan {
   text-align: center;
 }
 
-/* line 229, ../sass/screen.scss */
+/* line 236, ../sass/screen.scss */
 .front-signup ul li {
   list-style: none;
 }
 
-/* line 234, ../sass/screen.scss */
+/* line 241, ../sass/screen.scss */
 .features {
   position: relative;
   text-align: center;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 238, ../sass/screen.scss */
+/* line 245, ../sass/screen.scss */
 .features li {
   float: left;
   list-style: none;
   text-align: left;
   width: 15.75em;
   padding: 0.375em !important;
+}
+
+/* line 254, ../sass/screen.scss */
+.view-banner {
+  width: 100%;
+  background-color: #CCC;
+}
+
+/* line 258, ../sass/screen.scss */
+.view-video {
+  margin: 0 auto;
+  width: 34.5em;
+  height: 144 !important;
+  background-color: #000;
 }

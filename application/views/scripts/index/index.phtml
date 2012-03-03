@@ -41,6 +41,8 @@
             </li><li>
                 <?php echo $this->register->age; ?>
             </li><li>
+                <?php echo $this->register->email->renderViewHelper(); ?>
+                <?php echo $this->register->password->renderViewHelper(); ?>
                 <?php echo $this->register->submit->renderViewHelper(); ?>
             </li>
         </ul>
