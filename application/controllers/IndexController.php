@@ -3,7 +3,7 @@
 class IndexController extends Zend_Controller_Action {
 
     public function init() {
-        /* Initialize action controller here */
+        $this->view->flash = $this->_helper->FlashMessenger->getMessages();
     }
 
     public function indexAction() {
@@ -15,12 +15,6 @@ class IndexController extends Zend_Controller_Action {
             $this->_forward('register');
         }
         $this->view->signup = $signup;
-    }
-
-    public function helloAction() {
-        if (!Zend_Auth::getInstance()->hasIdentity()) {
-            $this->_redirect('/');
-        }
     }
 
     public function loginAction() {
@@ -89,7 +83,9 @@ class IndexController extends Zend_Controller_Action {
         /* either redirects if logged in, displays register form if signup form submitted,
          * or processes register form if register form submitted */
         if (Zend_Auth::getInstance()->hasIdentity()) {
-            $this->_redirect('/index/hello');
+            $flashMessenger = $this->_helper->getHelper('FlashMessenger');
+            $flashMessenger->addMessage('You are already logged in.');
+            $this->_redirect('/watch');
         } else if (isset($post['register-submit']) && $register->isValid($post)) {
             $user = new Model_DbTable_Users();
             $user->save($post);

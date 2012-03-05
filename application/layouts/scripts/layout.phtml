@@ -25,6 +25,13 @@ echo $this->doctype()
             </div>
         </header>
 
+        <div class="flash"><?php
+        if ($this->view->flash):
+            foreach ($this->view->flash as $flash):
+                print $flash;
+            endforeach;
+        endif;
+        ?></div>
         <div class="main"><?php echo $this->layout()->content ?></div>
 
     </body>
