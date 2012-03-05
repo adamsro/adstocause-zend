@@ -254,12 +254,22 @@ Page Specific
 .view-banner {
     width: 100%;
     background-color: #CCC;
+        h3 {
+        margin: 10px  0;
+        }
 }
 .view-video {
     margin: 0 auto;
-    width: $cols8;
+    width: 100%;
     height: $line * 6 !important;
     background-color: #000;
+    .the-video {
+        margin: 0 auto;
+        padding: $line /4;
+        width: 560px;
+        height: 315px;
+    }
+
 }
 .view-prev {
 

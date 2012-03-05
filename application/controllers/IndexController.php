@@ -20,7 +20,7 @@ class IndexController extends Zend_Controller_Action {
     public function loginAction() {
 
         $loginForm = new Form_Login();
-        $redirect = $this->getRequest()->getParam('redirect', 'index/index');
+        $redirect = $this->getRequest()->getParam('redirect', 'watch');
         $loginForm->setAttrib('redirect', $redirect);
 
         $auth = Zend_Auth::getInstance();
