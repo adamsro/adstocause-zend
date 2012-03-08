@@ -40,7 +40,7 @@ class IndexController extends Zend_Controller_Action {
                 if (!$result->isValid()) {
                     switch ($result->getCode()) {
                         case Zend_Auth_Result::FAILURE_CREDENTIAL_INVALID:
-                            $this->view->error = 'user credentials not found';
+                            $this->view->errors = 'user credentials not found';
                     }
                 } else {
                     /*

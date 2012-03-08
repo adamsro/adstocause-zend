@@ -14,18 +14,12 @@ class Model_DbTable_Users extends Zend_Db_Table_Abstract {
         $data = array();
         $data['email'] = $post['email'];
         $data['password'] = $this->hashPassword($post['password']);
+        $data['age'] = $post['age'];
+        $data['gender'] = $post['gender'];
         $data['created'] = time();
         $data['last'] = time();
-        unset($post['email']);
-        unset($post['password']);
-        unset($post['register-submit']);
-        unset($post['hash']);
-        $data['meta'] = serialize($post);
-        /* 
-         * INSERT INTO `users` (`email`, `password`, `created`, `last`, `meta`)
-         *  VALUES (?, ?, ?, ?, ?)
-         */
         $insert = $this->insert($data);
+        //var_dump($insert);
     }
 
     public function findCredentials($email, $pwd) {

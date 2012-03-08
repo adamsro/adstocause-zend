@@ -29,11 +29,16 @@ class WatchController extends Zend_Controller_Action {
         /* form uses hash so form may only run processing script once per
          * entire page load */
         if ($this->getRequest()->isPost() && $point->isValid($post) && isset($watch->ad)) {
+            try {
             $point = new Model_DbTable_Points();
             $user = Zend_Auth::getInstance()->getIdentity();
             $point->savePointWatch($user, $watch->ad);
             $ad = new Model_DbTable_Advertisment();
             $watch->ad = $ad->getRandAdvertisment();
+            } catch (Exception $e){
+                unset($watch->ad);
+                throw $e;
+            }
             echo "1";
         } else {
             echo "0";
