@@ -254,22 +254,28 @@ Page Specific
 .view-banner {
     width: 100%;
     background-color: #CCC;
-        h3 {
+    h3 {
         margin: 10px  0;
-        }
+    }
 }
 .view-video {
-    margin: 0 auto;
     width: 100%;
-    height: $line * 6 !important;
+/*    height: $line * 6 !important;*/
     background-color: #000;
+    margin: 0 auto;
+    padding: 0 0 10px 0;
     .the-video {
         margin: 0 auto;
-        padding: $line /4;
+        padding: 5px 0 10px 0;
         width: 560px;
         height: 315px;
     }
-
+    input[type=submit] {
+        @extend .input-button-small;
+        background-color: #2A2A2A;
+        color: #FFF;
+        margin: 0 auto;
+    }
 }
 .view-prev {
 

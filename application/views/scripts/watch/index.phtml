@@ -15,12 +15,17 @@
                 </embed>
             </object>
         </div>
+        <form action="<?php echo $this->points_form->getAction(); ?>" method="POST">
+            <?php echo $this->points_form->hash->renderViewHelper(); ?>
+            <?php echo $this->points_form->email->renderViewHelper(); ?>
+            <?php echo $this->points_form->submit->renderViewHelper(); ?>
+        </form>
     </div>
     <h3><?php echo $this->the_ad['name'] ?></h3>
     <?php echo $this->the_ad['desc'] ?>
     <?php //var_dump($this->the_ad); ?>
 </div>
-<?php echo $this->points_form ?>
+
 
 
 <div class="view-prev">

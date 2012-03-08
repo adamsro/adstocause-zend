@@ -5,6 +5,7 @@ echo $this->doctype()
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="robots" content="noindex,follow" /><!-- Will not appear in search engines -->
         <?php echo $this->headtitle(); ?>
         <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/screen.css'); ?>
         <?php
@@ -12,6 +13,9 @@ echo $this->doctype()
             echo $this->headScript()->appendFile($this->baseUrl() . '/js/ckeditor/ckeditor.js');
         }
         ?>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<!-- Heres jQuery ui if we need it.
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>-->
     </head>
     <body>
         <header>

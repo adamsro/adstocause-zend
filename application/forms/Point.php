@@ -19,7 +19,7 @@ class Form_Point extends Zend_Form {
         $this->addElement($email);
 
         $submit = new Zend_Form_Element_Submit('submit');
-        $submit->setLabel('Sign up');
+        $submit->setLabel('Next');
         $submit->setAttrib('name', 'point-submit');
         $this->addElement($submit);
     }
