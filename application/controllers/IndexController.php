@@ -13,7 +13,6 @@ class IndexController extends Zend_Controller_Action {
         if ($this->getRequest()->isPost() && $signup->isValid($post)) {
             $this->_forward('register');
         }
-        var_dump($post);
         $this->view->signup = $signup;
     }
 
