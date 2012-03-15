@@ -614,20 +614,64 @@ Page Specific
 .view-video {
   width: 100%;
   /*    height: $line * 6 !important;*/
+  overflow: hidden;
+  *zoom: 1;
   background-color: #000;
   margin: 0 auto;
   padding: 0 0 10px 0;
 }
-/* line 267, ../sass/screen.scss */
+/* line 268, ../sass/screen.scss */
 .view-video .the-video {
   margin: 0 auto;
   padding: 5px 0 10px 0;
   width: 560px;
   height: 315px;
 }
-/* line 273, ../sass/screen.scss */
+/* line 274, ../sass/screen.scss */
 .view-video input[type=submit] {
   background-color: #2A2A2A;
   color: #FFF;
-  margin: 0 auto;
+  float: left;
+  margin-left: 12em;
+}
+
+/* line 288, ../sass/screen.scss */
+.view-charities {
+  float: right;
+  overflow: hidden;
+  *zoom: 1;
+  padding-bottom: 4em;
+}
+/* line 292, ../sass/screen.scss */
+.view-charities li.view-charity {
+  float: left;
+  padding: 0.375em;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 296, ../sass/screen.scss */
+.view-charities li.view-charity h5 {
+  margin: 0;
+  width: 11.625em;
+}
+/* line 300, ../sass/screen.scss */
+.view-charities li.view-charity img {
+  width: 11.625em;
+  hegiht: 11.625em;
+}
+
+/* line 306, ../sass/screen.scss */
+#view-points {
+  float: left;
+  /*    position: absolute;*/
+  color: #FFF;
+}
+/* line 310, ../sass/screen.scss */
+#view-points ul {
+  margin: 5px 0 0 10px;
+  padding: 0;
+}
+/* line 313, ../sass/screen.scss */
+#view-points ul li {
+  margin: 0;
 }

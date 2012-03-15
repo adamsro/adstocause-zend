@@ -21,6 +21,7 @@ class Form_Point extends Zend_Form {
         $submit = new Zend_Form_Element_Submit('submit');
         $submit->setLabel('Next');
         $submit->setAttrib('name', 'point-submit');
+        $submit->setAttrib('id', 'point-submit');
         $this->addElement($submit);
     }
 

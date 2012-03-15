@@ -4,10 +4,10 @@
         <div class="the-video">
             <object width="560" height="315">
                 <param name="movie"
-                       value="https://www.youtube.com/v/<?php echo $this->the_ad['url'] ?>?fs=1&autoplay=1"></param>
+                       value="https://www.youtube.com/v/<?php echo $this->escape($this->the_ad['url']) ?>?fs=1&autoplay=1"></param>
                 <param name="allowFullScreen" value="true"></param>
                 <param name="allowScriptAccess" value="always"></param>
-                <embed src="https://www.youtube.com/v/<?php echo $this->the_ad['url'] ?>?fs=1&autoplay=1"
+                <embed src="https://www.youtube.com/v/<?php echo $this->escape($this->the_ad['url']) ?>?fs=1&autoplay=1"
                        type="application/x-shockwave-flash"
                        allowfullscreen="true"
                        allowscriptaccess="always"
@@ -15,11 +15,18 @@
                 </embed>
             </object>
         </div>
-        <form action="<?php echo $this->points_form->getAction(); ?>" method="POST">
+        <div id="view-points">
+            <ul>
+                <li>Points Earned: <?php echo $this->points ?></li>
+                <li>Dollars Earned: <?php echo $this->dollars ?></li>
+            </ul>
+        </div>
+        <form id="point-form" action="<?php echo $this->points_form->getAction(); ?>" method="POST">
             <?php echo $this->points_form->hash->renderViewHelper(); ?>
             <?php echo $this->points_form->email->renderViewHelper(); ?>
             <?php echo $this->points_form->submit->renderViewHelper(); ?>
         </form>
+        <div id="point-form-error"></div>
     </div>
     <h3><?php echo $this->the_ad['name'] ?></h3>
     <?php echo $this->the_ad['desc'] ?>
@@ -36,6 +43,19 @@
 
 </div>
 
-<div class="view-charities">
-
-</div>
+<ul class="view-charities">
+    <?php foreach ($this->charities as $charity): ?>
+        <li class="view-charity">
+            <form class="donoate-form" action="<?php echo $this->charity_form->getAction(); ?>" method="POST">
+                <img title="<?php echo $charity['name']; ?>"
+                     alt="<?php echo $charity['name']; ?>"
+                     src="<?php echo $this->baseurl() . "/img/placeholder.jpg"; ?>" />
+                <h5><?php echo $charity['name']; ?></h5>
+                <?php //echo $this->charity_form->donate_hash; ?>
+                <?php echo $this->charity_form->points->renderViewHelper(); ?>
+                <?php echo $this->formHidden('cid', $charity['cid']); ?>
+                <?php echo $this->charity_form->submit->renderViewHelper(); ?>
+            </form>
+        </li>
+    <?php endforeach; ?>
+</ul>

@@ -260,7 +260,8 @@ Page Specific
 }
 .view-video {
     width: 100%;
-/*    height: $line * 6 !important;*/
+    /*    height: $line * 6 !important;*/
+    @include clearfix;
     background-color: #000;
     margin: 0 auto;
     padding: 0 0 10px 0;
@@ -274,7 +275,8 @@ Page Specific
         @extend .input-button-small;
         background-color: #2A2A2A;
         color: #FFF;
-        margin: 0 auto;
+        float: left;
+        margin-left: $cols3;
     }
 }
 .view-prev {
@@ -284,5 +286,31 @@ Page Specific
 
 }
 .view-charities {
-
+    float: right;
+    @include clearfix;
+    padding-bottom: 4em;
+    
+    li.view-charity {
+        float: left;
+        padding: pxtoem($line / 4);
+        @include clearfix;
+        h5 {
+            margin: 0;
+            width: $cols3 - pxtoem($line / 4);
+        }
+        img {
+            width: $cols3 - pxtoem($line / 4);
+            hegiht: $cols3 - pxtoem($line / 4);
+        }
+    }
+}
+#view-points {
+    float: left;
+    /*    position: absolute;*/
+    color: #FFF;
+    ul {
+        margin: 5px 0 0 10px;
+        padding: 0;
+        li {margin: 0;}
+    }
 }

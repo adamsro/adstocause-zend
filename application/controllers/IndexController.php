@@ -75,11 +75,15 @@ class IndexController extends Zend_Controller_Action {
         $register = new Form_Registration();
         $register->setEmail($post['email']);
         $register->setPassword($post['password']);
-        $charities = array(1 => 'Red Cross', 2 => 'Blue Cross', 3 => 'Green Cross');
+        $charity = new Model_DbTable_Charity();
+        $result = $charity->findXNum(5);
+        $charities = array();
+        foreach ($result as $res) {
+            $charities[$res['cid']] = $res['name'];
+        }
         $register->setCharities($charities);
-        $categories = array(1 => 'Red C ross', 2 => 'Blue Cross', 3 => 'Green Cross');
-        $register->setAdCategories($categories);
-
+        //$categories = array(1 => 'Red C ross', 2 => 'Blue Cross', 3 => 'Green Cross');
+        $register->setAdCategories($charities);
         /* either redirects if logged in, displays register form if signup form submitted,
          * or processes register form if register form submitted */
         if (Zend_Auth::getInstance()->hasIdentity()) {
@@ -93,6 +97,9 @@ class IndexController extends Zend_Controller_Action {
             $authAdapter = new Model_AuthAdapter($post['email'], $post['password']);
             $result = $auth->authenticate($authAdapter);
             if (Zend_Auth::getInstance()->hasIdentity()) {
+                $ad = new Model_DbTable_Advertisment();
+                $watch = new Zend_Session_Namespace('watch');
+                $watch->ad = $ad->getdvertismentByUrl("W0X0cmQAdSE");
                 $this->_redirect('/watch');
             } else {
                 throw new Exception($result->getCode());

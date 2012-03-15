@@ -8,12 +8,14 @@ echo $this->doctype()
         <meta name="robots" content="noindex,follow" /><!-- Will not appear in search engines -->
         <?php echo $this->headtitle(); ?>
         <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/screen.css'); ?>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+        </script>
+        <?php echo $this->headScript()->appendFile($this->baseUrl() . '/js/main.js'); ?>
         <?php
         if ($this->ckeditor) {
             echo $this->headScript()->appendFile($this->baseUrl() . '/js/ckeditor/ckeditor.js');
         }
         ?>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <!-- Heres jQuery ui if we need it.
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>-->
     </head>

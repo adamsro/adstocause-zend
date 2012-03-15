@@ -15,9 +15,12 @@ class Form_Signup extends Zend_Form {
 
         $hash = new Zend_Form_Element_Hash('hash');
 
+        $emailRegex = new Zend_Validate_Regex(array('pattern' => '/^([\w\!\#$\%\&\'\*\+\-\/\=\?\^\`{\|\}\~]+\.)*[\w\!\#$\%\&\'\*\+\-\/\=\?\^\`{\|\}\~]+@((((([a-z0-9]{1}[a-z0-9\-]{0,62}[a-z0-9]{1})|[a-z])\.)+[a-z]{2,6})|(\d{1,3}\.){3}\d{1,3}(\:\d{1,5})?)$/i'));
+        $emailRegex->setMessage('Improperly formatted email address \'%value%\'');
         $email = new Zend_Form_Element_Text('email');
         $email->setAttrib('placeholder', 'Email')
                 ->setDecorators($this->decorators)
+                ->addValidator($emailRegex, true)
                 ->setRequired(true)
                 ->addFilter('StripTags')
                 ->addFilter('StringTrim')
