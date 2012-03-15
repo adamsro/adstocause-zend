@@ -8,8 +8,7 @@ class Form_Signup extends Zend_Form {
         array('Label'),
     );
 
-    public function __construct() {
-        parent::__construct($options);
+    public function init() {
         $this->setName('Registration');
         $this->setAction('/index');
 
