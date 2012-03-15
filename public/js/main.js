@@ -15,7 +15,7 @@ $(function() {
                 window.location.reload();
             } else {
                 //   $("#point-submit").attr('disabled', true);
-                alert("form already submitted!");
+                //alert("form already submitted!");
                 window.location.reload();
             //    $("#point-form-error").html("Form already submitted!");
             }

@@ -47,6 +47,7 @@ class WatchController extends Zend_Controller_Action {
                 $user = Zend_Auth::getInstance()->getIdentity();
                 $point->savePointWatch($user, $watch->ad);
                 $ad = new Model_DbTable_Advertisment();
+                unset($watch->ad);
                 $watch->ad = $ad->getRandAdvertisment();
             } catch (Exception $e) {
                 unset($watch->ad);
