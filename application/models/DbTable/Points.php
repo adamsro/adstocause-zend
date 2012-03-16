@@ -15,7 +15,6 @@ class Model_DbTable_Points extends Zend_Db_Table_Abstract {
 
     public function donatePoints($user, $cid, $number) {
         $res = $this->select()
-                        //->setIntegrityCheck(false) // rows become read only, cannot save updated result
                         ->from('points')
                         ->order('created')
                         ->where('uid = ? AND cid IS NULL', $user['uid'])
@@ -29,14 +28,13 @@ class Model_DbTable_Points extends Zend_Db_Table_Abstract {
     }
 
     /* get all unused points tally for a user */
-
     public function getCountForUser($user) {
         $stmt = $this->getAdapter()
                 ->query("SELECT COUNT(*) AS count,  SUM(pointstodollar) AS dollars FROM points p " .
                 "LEFT JOIN advertisment a ON a.aid=p.aid " .
                 "WHERE uid = ? AND cid IS NULL", array((int) $user['uid']));
+        //exit(var_dump($stmt));
         return $stmt->fetch();
-        //return (int) $result['count'];
     }
 
     public function savePoint($post) {

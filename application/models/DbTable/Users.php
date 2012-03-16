@@ -27,6 +27,7 @@ class Model_DbTable_Users extends Zend_Db_Table_Abstract {
                 ->where('email = ?', $email)
                 ->where('password = ?', $this->hashPassword($pwd));
         $row = $this->fetchRow($select);
+        exit(var_dump($row));
         if ($row) {
             return $row;
         }
